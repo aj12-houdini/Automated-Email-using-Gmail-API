@@ -16,10 +16,10 @@ Before running the application, make sure you have the following prerequisites:
 2. Navigate to the project directory
 3. Install the dependencies: npm install
 4. Set up the OAuth 2.0 credentials:
-   Go to the Google Cloud Console and create a new project.
-   Enable the Gmail API for your project.
-   Create OAuth 2.0 credentials (client ID and client secret) and download the JSON file.
-   Rename the JSON file to credentials.json and place it in the root directory of the project.
+   1. Go to the Google Cloud Console and create a new project.
+   2. Enable the Gmail API for your project.
+   3. Create OAuth 2.0 credentials (client ID and client secret) and download the JSON file.
+   4. Rename the JSON file to credentials.json and place it in the root directory of the project.
 5. Run the application: node app.js
 
 ## Contributions
