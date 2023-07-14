@@ -6,11 +6,11 @@ const listLabels = require("./list_labels");
 const checkReply = require("../helper_functions/check_reply");
 const getCurrentDate = require("../helper_functions/get_current_date");
 
-//function to assign labels and send the email with necessary paramters to the sender
+//function to assign labels and send the email with necessary parameters to the sender
 async function sendEmailAndAssignLabel(auth, gmail, messageId, threadId) {
   let labelIds = await listLabels(auth); //Get the user defined Labels ids in an array
-  assignLabels(gmail, messageId, labelIds); //Assigns labels to the message recieved and sent as part of the same thread
-  sendEmail(gmail, threadId, messageId); //Sends email with necessary paramters like To,From,Date etc.
+  assignLabels(gmail, messageId, labelIds); //Assigns labels to the message received and sent as part of the same thread
+  sendEmail(gmail, threadId, messageId); //Sends email with necessary parameters like To, From, Date etc.
 }
 
 //Get the query to send the emails only after a specific date i.e. vacation date
@@ -32,7 +32,7 @@ async function autoRespondEmail(auth) {
 
   const query = getQuery();
 
-  //Use the gmail API functions to list all the emails based on the given query
+  //Use the Gmail API functions to list all the emails based on the given query
   gmail.users.messages.list(
     {
       userId: "me",
@@ -51,7 +51,7 @@ async function autoRespondEmail(auth) {
           //Check whether or not the email recieved has already been replied to
           let EmailReplied = await checkReply(auth, message.threadId);
 
-          //If it hasnt been replied to then send the automated reply
+          //If it hasn't been replied to then send the automated reply
           if (!EmailReplied)
             sendEmailAndAssignLabel(auth, gmail, message.id, message.threadId);
           else {
