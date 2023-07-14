@@ -16,7 +16,7 @@ function sendEmail(gmail, threadId, messageId) {
 
       
       const email = res.data;
-      //Using helper function to get the important paramters of the email 
+      //Using helper function to get the important parameters of the email 
       const sender = getHeader(email, "From");
       const recipient = getHeader(email, "To");
       const subject = getHeader(email, "Subject");
